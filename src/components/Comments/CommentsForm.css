@@ -1,0 +1,12 @@
+.form {}
+
+
+.form_inputs label {
+    display: flex;
+    flex-direction: column;
+    color: white !important;
+}
+
+.name_input {
+    color: white;
+}

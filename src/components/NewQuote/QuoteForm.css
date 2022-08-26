@@ -1,0 +1,43 @@
+.new-quote-form {
+    position: relative;
+    top: 20vh;
+    left: 15%;
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    padding: 2rem;
+
+}
+
+
+
+
+.form_actions button {
+    float: right;
+
+    background-color: #0088ff;
+    color: #060074;
+    border: solid 2px #0088ff;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 5rem;
+    font-weight: 700;
+}
+
+.form_actions button:active,
+.form_actions button:hover {
+    border-color: #060074;
+    background-color: #060074;
+    color: #ffffff
+}
+
+.form_actions button:disabled {
+    border-color: #aeaeae;
+    background-color: #c2c2c2;
+    color: #8c8c8c;
+    cursor: not-allowed;
+
+}

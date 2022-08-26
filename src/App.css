@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #0088ff;
+  opacity: 1;
+  margin: 0;
+  color: #ffe000;
+  font-weight: 900;
+  text-align: center;
+  height: 100%;
+  border-top: solid 1rem #ffe000;
+  ;
+}

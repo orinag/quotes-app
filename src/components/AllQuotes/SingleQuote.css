@@ -1,0 +1,41 @@
+.quote {
+
+    padding: 5px;
+    margin: 3rem 1rem;
+    border-radius: 5px;
+
+    color: #FFE000;
+    box-shadow: -5px 3px 7px 2px #0000003b;
+    background-color: white;
+
+}
+
+.quote:hover,
+.quote:active {
+
+    font-weight: 700;
+    font-size: 24px;
+    border: solid 3px #060074;
+    cursor: pointer;
+    color: #FFE000;
+}
+
+.quote a {
+    text-decoration: none;
+    color: #0088ff;
+
+
+}
+
+.quote p {
+    color: white;
+    text-decoration: solid;
+    font-style: italic;
+    float: right;
+    font-weight: 400;
+    padding: 4px 6px;
+
+    border-radius: 5px;
+
+
+}
