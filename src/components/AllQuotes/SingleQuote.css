@@ -7,7 +7,7 @@
     color: #FFE000;
     box-shadow: -5px 3px 7px 2px #0000003b;
     background-color: white;
-    transition: all .2s ease-in-out
+    transition: all .2s ease-in-out;
 }
 
 .quote:hover,
