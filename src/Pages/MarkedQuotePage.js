@@ -15,7 +15,7 @@ const MarkedQuotePage = (props) => {
 
   if (quotesCtx.allQuotes) {
     currentQuote = quotesCtx.allQuotes.find(
-      (quoteItem) => params.quoteId === quoteItem._id
+      (quoteItem) => params.quoteId == quoteItem._id
     );
   }
 

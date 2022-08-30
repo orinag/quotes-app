@@ -33,13 +33,10 @@ export const ContextProvider = (props) => {
   };
 
   const handleAddComment = (id, newComment) => {
-    console.log("id: " + id);
-    console.log(newComment);
     let editedQuote;
     const currentQuote = quotes.find((quote) => quote._id === id);
     console.log(currentQuote);
     if (currentQuote) {
-      console.log("hello");
       editedQuote = currentQuote.comments.push({
         name: newComment.name.value,
         comment: newComment.comment.value,
@@ -51,14 +48,14 @@ export const ContextProvider = (props) => {
   const sendRequest = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("https://api.quotable.io/quotes");
+      const response = await fetch("http://localhost:5000/quotes");
 
       const data = await response.json();
 
       setQuotes(
-        data.results.map((quote) => {
+        data.quotes.map((quote) => {
           return {
-            _id: quote._id,
+            _id: quote.id,
             content: quote.content,
             author: quote.author,
             comments: [],
@@ -72,7 +69,7 @@ export const ContextProvider = (props) => {
         throw new Error("error");
       }
     } catch (err) {
-      console.log("error");
+      console.log(err);
     }
     setIsLoading(false);
   }, [props]);
