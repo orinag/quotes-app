@@ -17,10 +17,9 @@
 
 .form_actions button {
     float: right;
-
-    background-color: #0088ff;
+    background-color: #ffffff;
     color: #060074;
-    border: solid 2px #0088ff;
+    border: solid 2px #ffffff;
     border-radius: 5px;
     cursor: pointer;
     width: 5rem;
