@@ -15,9 +15,30 @@ export const ContextProvider = (props) => {
 
   const history = useHistory();
   const handleAddQuote = (newQuote) => {
-    setQuotes((prevQuotes) => {
-      return [...prevQuotes, newQuote];
-    });
+    console.log(newQuote);
+    const addRequest = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch("http://localhost:5000/add-quote", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            author: newQuote.author,
+            content: newQuote.content,
+          }),
+        });
+
+        const responseData = await response.json();
+        console.log(responseData);
+
+        if (!response.ok) {
+          throw new Error("Unknown error occurred, please try again.");
+        }
+      } catch (err) {
+        console.log("Error");
+      }
+    };
+    addRequest();
   };
 
   const handleDeleteQuote = (id) => {
@@ -62,8 +83,6 @@ export const ContextProvider = (props) => {
           };
         })
       );
-
-      props.quotesPass(quotes);
 
       if (!response.ok) {
         throw new Error("error");
