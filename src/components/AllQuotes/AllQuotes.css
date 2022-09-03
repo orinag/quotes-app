@@ -1,18 +1,19 @@
 .quote-list {
     margin: 5rem auto;
     text-align: center;
-    width: 60%;
-
-    justify-content: center;
-    align-items: center;
+    width: 50%;
 }
 
 .quote-list ul {
     list-style: none;
-    display: grid;
-    grid-template-columns: 70%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 
+}
+
+.quote-list li {
+    height: 100vh;
 }
 
 @media (max-width: 500px) {

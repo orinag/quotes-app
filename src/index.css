@@ -5,10 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(90deg, transparent 24%, #0059a641 25%, #0059a641 30%, transparent 31%, transparent 39%, #0059a641 40%, #0059a641 45%, transparent 45%), linear-gradient(180deg, transparent 24%, #0059a641 25%, #0059a641 30%, transparent 31%, transparent 39%, #0059a641 40%, #0059a641 45%, transparent 45%);
-  background-size: 3em 3em;
+
   background-color: #0088ff;
-  opacity: 1;
+
 
 }
 

@@ -1,12 +1,14 @@
 .quote {
 
     padding: 5px;
-    margin: 3rem 0.5rem 3rem -2rem;
+    margin: 7rem 0.5rem 3rem -2rem;
     border-radius: 5px;
     color: #FFE000;
     box-shadow: -5px 3px 7px 2px #0000003b;
     background-color: white;
     transition: all .2s ease-in-out;
+    font-size: 25px;
+
 }
 
 .quote:hover,
@@ -29,7 +31,6 @@
     float: right;
     font-weight: 400;
     padding: 4px 6px;
-
     border-radius: 5px;
 
 
