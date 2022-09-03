@@ -1,0 +1,17 @@
+.sidedrawer {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background-color: #ffe000;
+}
+
+.sidedrawer ul {
+
+
+    flex-direction: column;
+}
+
+.sidedrawer li {
+    background-color: #0059a6;
+}

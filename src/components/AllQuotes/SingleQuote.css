@@ -1,9 +1,8 @@
 .quote {
 
     padding: 5px;
-    margin: 3rem 1rem;
+    margin: 3rem 0.5rem 3rem -2rem;
     border-radius: 5px;
-
     color: #FFE000;
     box-shadow: -5px 3px 7px 2px #0000003b;
     background-color: white;
@@ -34,4 +33,18 @@
     border-radius: 5px;
 
 
+}
+
+
+@media (max-width: 500px) {
+    .quote p {
+        text-decoration: solid;
+        font-style: italic;
+        font-weight: 400;
+        float: none;
+        color: #0064bc;
+        padding: 4px 6px;
+        border-radius: 5px;
+
+    }
 }

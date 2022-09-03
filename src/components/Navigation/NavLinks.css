@@ -37,3 +37,5 @@
     padding: 0.5rem;
     border: solid 3px #060074;
 }
+
+@media (max-width: 500px) {}

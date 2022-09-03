@@ -21,3 +21,46 @@
     font-weight: 300;
     margin: 2rem 1rem;
 }
+
+.sidedrawer-btn {
+    display: none;
+}
+
+.nav-bar-fullscreen ul {
+    color: red;
+}
+
+
+
+@media (max-width: 500px) {
+    .header {
+        gap: 0;
+        height: 5rem;
+        flex-direction: row-reverse;
+    }
+
+    .sidedrawer-btn {
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        flex-direction: column;
+        background: #ffe000;
+        margin: auto;
+        gap: 9px;
+        border: solid 8px #ffe000;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+    .sidedrawer-btn span {
+        background-color: #0059a6;
+        width: 1.4rem;
+        height: 7px;
+    }
+
+    .nav-bar-fullscreen ul {
+        display: none;
+    }
+
+}
