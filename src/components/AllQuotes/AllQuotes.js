@@ -17,7 +17,7 @@ const AllQuotes = (props) => {
           {quotesCtx.allQuotes &&
             quotesCtx.allQuotes.map((item) => {
               return (
-                <li>
+                <li key={item._id}>
                   <SingleQuote
                     id={item._id}
                     quote={item.content}

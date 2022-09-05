@@ -1,14 +1,14 @@
 .new-quote-form {
     position: relative;
     top: 20vh;
-    left: 15%;
+    left: 6%;
     width: 70%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     text-align: left;
-
     padding: 2rem;
+    margin: auto;
 
 }
 
@@ -16,20 +16,20 @@
 
 
 .form_actions button {
-    float: right;
     background-color: #ffffff;
-    color: #060074;
+    color: #0088ff;
     border: solid 2px #ffffff;
     border-radius: 5px;
     cursor: pointer;
-    width: 5rem;
+    width: 81%;
     font-weight: 700;
+
 }
 
 .form_actions button:active,
 .form_actions button:hover {
-    border-color: #060074;
-    background-color: #060074;
+    border-color: #ffe000;
+    background-color: #ffe000;
     color: #ffffff
 }
 

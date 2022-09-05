@@ -12,19 +12,32 @@
 
 .form-control input,
 .form-control textarea {
-    border: solid 2px #0064bc;
+    border: none;
     border-radius: 5px;
     margin: 0.5rem 0;
     width: 80%;
 }
 
+
+.form-control textarea:focus,
+input:focus {
+    color: #0088ff;
+}
+
+.form-control input,
+select,
+textarea {
+    color: #0088ff;
+}
+
 .invalid input,
 .invalid textarea {
-    border: solid 4px #bc0000;
+    border: solid 2px #bc0000;
     background-color: #ffd4dd;
     color: red
 }
 
 .invalid label {
     color: rgb(157, 0, 0);
+    font-weight: 500;
 }

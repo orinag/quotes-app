@@ -38,13 +38,11 @@ const useForm = (initialInputs, initialFormIsValid) => {
     inputs: initialInputs,
     isValid: initialFormIsValid,
   });
- 
+
   const inputHandler = useCallback((id, value, isValid) => {
-    console.log(isValid);
     dispatch({ type: "CHANGE", id, value, isValid });
   }, []);
   const setFormHandler = useCallback((inputsData, formValidity) => {
-    console.log("formValidity");
     dispatch({
       type: "SET_FORM",
       inputs: inputsData,

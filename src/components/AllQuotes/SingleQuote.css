@@ -11,6 +11,25 @@
 
 }
 
+.quote h1 {
+    font-size: 25px;
+    font-weight: 100;
+}
+
+.mark-top {
+    float: left;
+}
+
+.quote strong {
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+.mark-bot {
+    float: right;
+    margin-top: -2rem;
+}
+
 .quote:hover,
 .quote:active {
     transform: scale(1.5);
