@@ -14,9 +14,9 @@ const QuoteForm = () => {
 
     false
   );
+  console.log(formState.inputs.author?.value);
 
   const submitHandler = (event) => {
-    event.preventDefault();
     quoteCtx.addQuote({
       _id: 1234,
       content: formState.inputs.quote.value,
@@ -40,7 +40,14 @@ const QuoteForm = () => {
         </Input>
       </div>
       <div className="form_actions">
-        <button type="submit" disabled={!formState.isValid}>
+        <button
+          type="submit"
+          disabled={
+            !formState.isValid ||
+            formState.inputs.author?.value == "" ||
+            formState.inputs.quote?.value == ""
+          }
+        >
           Submit
         </button>
       </div>
