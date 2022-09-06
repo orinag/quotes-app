@@ -1,14 +1,15 @@
 import "./MarkedQuote.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useContext } from "react";
 import QuotesContext from "../../store/quotes-context";
 
 const MarkedQuote = (props) => {
   const quotesCtx = useContext(QuotesContext);
+  const history = useHistory();
 
   const handleDelete = () => {
-    console.log(props._id);
     quotesCtx.deleteQuote(props._id);
+    history.push("/quotes");
   };
   return (
     <figure className="marked-quote">

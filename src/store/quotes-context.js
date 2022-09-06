@@ -15,7 +15,6 @@ export const ContextProvider = (props) => {
 
   const history = useHistory();
   const handleAddQuote = (newQuote) => {
-    console.log(newQuote);
     const addRequest = async () => {
       setIsLoading(true);
       try {
@@ -29,45 +28,46 @@ export const ContextProvider = (props) => {
         });
 
         const responseData = await response.json();
-        console.log(responseData);
 
         if (!response.ok) {
           throw new Error("Unknown error occurred, please try again.");
         }
-      } catch (err) {
-        console.log("Error");
-      }
+      } catch (err) {}
     };
     addRequest();
   };
 
   const handleDeleteQuote = (id) => {
-    console.log(id);
+    setIsLoading(true);
+    const deleteRequest = async () => {
+      const response = await fetch(`http://localhost:5000/${id}/delete-quote`, {
+        method: "DELETE",
+      });
+      const data = await response.json();
+    };
 
-    const deletedIndex = quotes.findIndex((quote) => quote._id === id);
+    deleteRequest().then(() => {
+      getAllRequest();
+    });
 
-    const newQuotes = quotes
-      .slice(0, deletedIndex)
-      .concat(quotes.slice(deletedIndex + 1, quotes.length));
-    setQuotes(newQuotes);
-    history.push("/quotes");
+    setIsLoading(false);
   };
 
   const handleAddComment = (id, newComment) => {
     let editedQuote;
     const currentQuote = quotes.find((quote) => quote._id === id);
-    console.log(currentQuote);
+
     if (currentQuote) {
       editedQuote = currentQuote.comments.push({
         name: newComment.name.value,
         comment: newComment.comment.value,
       });
-      console.log(currentQuote.comments);
     }
   };
 
-  const sendRequest = useCallback(async () => {
+  const getAllRequest = useCallback(async () => {
     setIsLoading(true);
+
     try {
       const response = await fetch("http://localhost:5000/quotes");
 
@@ -84,6 +84,8 @@ export const ContextProvider = (props) => {
         })
       );
 
+      history.push("/quotes");
+
       if (!response.ok) {
         throw new Error("error");
       }
@@ -94,8 +96,8 @@ export const ContextProvider = (props) => {
   }, [props]);
 
   useEffect(() => {
-    sendRequest();
-  }, [sendRequest]);
+    getAllRequest();
+  }, [getAllRequest]);
 
   return (
     <QuotesContext.Provider

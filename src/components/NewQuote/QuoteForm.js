@@ -14,7 +14,6 @@ const QuoteForm = () => {
 
     false
   );
-  console.log(formState.inputs.author?.value);
 
   const submitHandler = (event) => {
     quoteCtx.addQuote({
