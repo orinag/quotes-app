@@ -7,7 +7,7 @@ const SingleQuote = (props) => {
     <Fragment>
       <figure className="quote">
         <Link to={`/quotes/${props.id}`}>
-          <blockquote>
+          <blockquote className="border-bottom">
             <strong className="mark-top">❝</strong>
             <br />
             <h1> {props.quote}</h1>
@@ -17,6 +17,13 @@ const SingleQuote = (props) => {
           </blockquote>
           <p>-{props.auther}</p>
         </Link>
+        <div>
+          {" "}
+          <span>X</span>
+          <span>X</span>
+          <span>X</span>
+          <span>X</span>
+        </div>
       </figure>
     </Fragment>
   );

@@ -55,6 +55,11 @@
 
 }
 
+.border-bottom {
+    border-bottom: solid 0.1px;
+    padding: 1rem;
+}
+
 
 @media (max-width: 500px) {
     .quote p {
