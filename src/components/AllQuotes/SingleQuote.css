@@ -1,7 +1,5 @@
 .quote {
-
     padding: 5px;
-    margin: 7rem 0.5rem 3rem -2rem;
     border-radius: 5px;
     color: #FFE000;
     box-shadow: -5px 3px 7px 2px #0000003b;
@@ -32,7 +30,7 @@
 
 .quote:hover,
 .quote:active {
-    transform: scale(1.5);
+
     z-index: 2;
 }
 
@@ -60,6 +58,45 @@
     padding: 1rem;
 }
 
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete {}
+
+.comment {
+
+    border: none;
+    margin-bottom: 5px;
+
+
+}
+
+.actions button {
+    font-size: 30px;
+    background-color: transparent;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.actions button:hover,
+.actions button:active {
+    transform: scale(1.5);
+
+
+}
+
+.delete:hover,
+.delete:active {}
+
+.author {
+    float: right;
+    color: white;
+    margin: auto;
+    font-family: cursive;
+}
 
 @media (max-width: 500px) {
     .quote p {

@@ -15,16 +15,14 @@ const SingleQuote = (props) => {
             <br />
             <strong className="mark-bot">❞</strong>
           </blockquote>
-          <p>-{props.auther}</p>
         </Link>
-        <div>
-          {" "}
-          <span>X</span>
-          <span>X</span>
-          <span>X</span>
-          <span>X</span>
+        <div className="actions">
+          <button className="delete">🚫</button>
+          <button className="comment">📨</button>
+          <button className="like">👍</button>
         </div>
       </figure>
+      <p className="author">-{props.auther}</p>
     </Fragment>
   );
 };
