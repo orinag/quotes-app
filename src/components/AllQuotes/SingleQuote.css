@@ -1,7 +1,7 @@
 .quote {
     padding: 5px;
     border-radius: 5px;
-    color: #FFE000;
+    color: #dcc300;
     box-shadow: -5px 3px 7px 2px #0000003b;
     background-color: white;
     transition: all .2s ease-in-out;
@@ -9,10 +9,17 @@
 
 }
 
+.quote:hover,
+.quote:active {
+    color: #0088ff;
+    z-index: 2;
+}
+
 .quote h1 {
     font-size: 25px;
     font-weight: 100;
 }
+
 
 .mark-top {
     float: left;
@@ -28,11 +35,6 @@
     margin-top: -2rem;
 }
 
-.quote:hover,
-.quote:active {
-
-    z-index: 2;
-}
 
 .quote a {
     text-decoration: none;
@@ -79,6 +81,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 .actions button:hover,

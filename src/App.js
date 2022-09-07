@@ -4,6 +4,7 @@ import Header from "./components/Navigation/Header";
 import NewQuotePage from "./Pages/NewQuotePage";
 import AllQuotes from "./components/AllQuotes/AllQuotes";
 import { Fragment } from "react";
+import Comments from "./components/Comments/Comments";
 import MarkedQuotePage from "./Pages/MarkedQuotePage";
 
 function App() {
@@ -15,8 +16,8 @@ function App() {
           <Route path="/quotes" exact>
             <AllQuotes />
           </Route>
-          <Route path="/quotes/:quoteId">
-            <MarkedQuotePage />
+          <Route path="/:quoteId">
+            <Route path="/:quoteId/comments"></Route>
           </Route>
           <Route path="/new-quote" exact>
             <NewQuotePage />
