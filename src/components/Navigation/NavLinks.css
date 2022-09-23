@@ -11,10 +11,10 @@
 }
 
 .nav-list a {
-    color: white;
+    color: #eda31b;
     font-weight: 700;
     text-decoration: none;
-    color: #FFFFFF;
+
 
 
 }
@@ -29,11 +29,11 @@
 
 .nav-list a.active {
 
-    color: #0088ff;
-    background-color: #FFFFFF;
+    color: #eda31b;
+    background-color: #f5deb3;
     opacity: 1;
     padding: 0.5rem;
-    border: solid 3px #0088ff;
+    border: solid 3px #eda31b;
     border-radius: 5px;
 }
 

@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     height: 100%;
-    background-color: #ffe000;
+    background-color: #eda31b;
 }
 
 .sidedrawer ul {
@@ -13,5 +13,5 @@
 }
 
 .sidedrawer li {
-    background-color: #0059a6;
+    background-color: #f5deb3;
 }

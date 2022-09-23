@@ -6,6 +6,7 @@ import "./QuoteForm.css";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Backdrop from "../UI/Backdrop";
 import Modal from "../UI/Modal";
+import { useHistory } from "react-router-dom";
 
 const QuoteForm = () => {
   const [addQuoteReq, isLoading, err, clearErr] = useHttp();
@@ -17,9 +18,8 @@ const QuoteForm = () => {
 
     false
   );
-
+  const history = useHistory();
   const submitHandler = (event) => {
-    event.preventDefault();
     const newQuote = {
       author: formState.inputs.author.value,
       content: formState.inputs.quote.value,
@@ -29,13 +29,14 @@ const QuoteForm = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        autahor: newQuote.author,
+        author: newQuote.author,
         content: newQuote.content,
       }),
     });
 
     document.getElementById("author").value = "";
     document.getElementById("quote").value = "";
+    history.push("/quotes");
   };
 
   return (
@@ -66,13 +67,6 @@ const QuoteForm = () => {
           <Input id="quote" element={"textarea"} rows={10} onInput={setInput}>
             Quote:
           </Input>
-        </div>
-        <div className="category">
-          Category: <br />
-          <select id="categories_select">
-            <option value="comedy">Comedy</option>
-            <option value="inspersion">Inspersion</option>
-          </select>
         </div>
         <div className="form_actions">
           <button

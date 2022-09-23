@@ -7,7 +7,7 @@ const Modal = (props) => {
   const content = (
     <Fragment>
       <Backdrop onClick={props.onClick} />
-      <div className="modal">
+      <div className={props.err ? "err_modal" : "modal"}>
         <header className="modal_header">
           <p>{props.header}</p>
         </header>
@@ -15,7 +15,9 @@ const Modal = (props) => {
           <h3>{props.content}</h3>
         </div>
         <footer className="modal_footer">
-          <button onClick={props.onClick}>{props.button || "Close"}</button>
+          {props.button && (
+            <button onClick={props.onClick}>{props.button || "Close"}</button>
+          )}
           <div className="footer_toolbar">{props.footer}</div>
         </footer>
       </div>

@@ -1,6 +1,14 @@
 .header {
 
-    background-color: #0088ff;
+    background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
     opacity: 1;
     margin: 0;
     position: fixed;
@@ -10,13 +18,13 @@
     z-index: 10;
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 4px #ffe000;
+    border-bottom: solid 4px #eda31b;
 }
 
 .title {
     font-size: 4rem;
     line-height: 3px;
-    color: #ffe000;
+    color: #eda31b;
     font-weight: 300;
     margin: 2rem 1rem;
 }
@@ -43,17 +51,17 @@
         height: 3rem;
         display: flex;
         flex-direction: column;
-        background: #ffe000;
+        background: #eda31b;
         margin: auto;
         gap: 9px;
-        border: solid 8px #ffe000;
+        border: solid 8px #eda31b;
         border-radius: 5px;
         cursor: pointer;
     }
 
 
     .sidedrawer-btn span {
-        background-color: #0059a6;
+        background-color: #f5deb3;
         width: 1.4rem;
         height: 7px;
     }

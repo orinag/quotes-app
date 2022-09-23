@@ -12,16 +12,6 @@
 
 }
 
-.category {
-    display: flex;
-    color: white;
-    width: 81%;
-    border-radius: 15px;
-    font-weight: 900;
-    justify-content: center;
-    flex-direction: column;
-    align-items: stretch;
-}
 
 
 

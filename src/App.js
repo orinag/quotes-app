@@ -4,9 +4,9 @@ import Header from "./components/Navigation/Header";
 import NewQuotePage from "./Pages/NewQuotePage";
 import AllQuotes from "./components/AllQuotes/AllQuotes";
 import { Fragment } from "react";
-import Comments from "./components/Comments/Comments";
-import MarkedQuotePage from "./Pages/MarkedQuotePage";
+import configureQuotesStore from "./hooks-store/quotes-store";
 
+configureQuotesStore();
 function App() {
   return (
     <Fragment>
@@ -16,9 +16,7 @@ function App() {
           <Route path="/quotes" exact>
             <AllQuotes />
           </Route>
-          <Route path="/:quoteId">
-            <Route path="/:quoteId/comments"></Route>
-          </Route>
+
           <Route path="/new-quote" exact>
             <NewQuotePage />
           </Route>

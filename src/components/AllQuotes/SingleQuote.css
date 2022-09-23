@@ -1,17 +1,27 @@
 .quote {
     padding: 5px;
     border-radius: 5px;
-    color: #dcc300;
+
+    color: wheat;
+    text-shadow: 1px 1px 1px #00000069, 1px 1px 1px #0000006e;
     box-shadow: -5px 3px 7px 2px #0000003b;
     background-color: white;
     transition: all .2s ease-in-out;
     font-size: 25px;
+    background: url(https://images.unsplash.com/photo-1580127645995-d43fe9598711?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjg4MzU2OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
+    background-size: cover;
+    background-position: bottom;
+
 
 }
 
-.quote:hover,
-.quote:active {
-    color: #0088ff;
+.border-bottom:hover,
+.border-bottom:active {
+    color: #575146;
+    border-bottom: solid 5px #f5deb394;
+    color: wheat;
+    text-shadow: 1px 1px 1px #00000069, 1px 1px 1px #0000006e;
+    cursor: pointer;
     z-index: 2;
 }
 
@@ -38,13 +48,13 @@
 
 .quote a {
     text-decoration: none;
-    color: #0088ff;
+    color: #575146;
 
 
 }
 
 .quote p {
-    color: white;
+    color: #575146;
     text-decoration: solid;
     font-style: italic;
     float: right;
@@ -56,8 +66,12 @@
 }
 
 .border-bottom {
-    border-bottom: solid 0.1px;
+
+    background-color: #57514670;
+
     padding: 1rem;
+
+
 }
 
 .actions {
@@ -74,6 +88,8 @@
 
 
 }
+
+.add-comment {}
 
 .actions button {
     font-size: 30px;
@@ -96,7 +112,7 @@
 
 .author {
     float: right;
-    color: white;
+    color: #575146;
     margin: auto;
     font-family: cursive;
 }

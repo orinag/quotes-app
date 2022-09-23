@@ -4,7 +4,7 @@
 
 
     display: block;
-    color: #ffffff;
+    color: #2b2828;
     font-weight: 700;
 
 
@@ -21,13 +21,14 @@
 
 .form-control textarea:focus,
 input:focus {
-    color: #0088ff;
+    color: #eda31b;
 }
 
 .form-control input,
 select,
 textarea {
-    color: #0088ff;
+    color: #eda31b;
+    border-radius: 5px;
 }
 
 .invalid input,
