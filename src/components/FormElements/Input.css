@@ -1,4 +1,9 @@
-.form-control {}
+.form-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .form-control label {
 
@@ -16,6 +21,10 @@
     border-radius: 5px;
     margin: 0.5rem 0;
     width: 80%;
+    border: solid 2px #bc000000;
+    background-color: #ffe3d1;
+    color: rgb(255, 166, 0);
+    box-shadow: 0.1px 0.1px 0px #ff730093, -0.1px -0.1px 5px 0px #ff730093;
 }
 
 
@@ -33,9 +42,10 @@ textarea {
 
 .invalid input,
 .invalid textarea {
-    border: solid 2px #bc0000;
+    border: solid 2px #bc000000;
     background-color: #ffd4dd;
-    color: red
+    color: red;
+    box-shadow: 0.1px 0.1px 0px #ff000052, -0.1px -0.1px 5px 0px #ff000099;
 }
 
 .invalid label {
