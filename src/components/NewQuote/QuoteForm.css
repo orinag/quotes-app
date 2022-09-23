@@ -12,13 +12,23 @@
 
 }
 
+.category {
+    display: flex;
+    color: white;
+    width: 81%;
+    border-radius: 15px;
+    font-weight: 900;
+    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+}
 
 
 
 .form_actions button {
-    background-color: #ffffff;
-    color: #0088ff;
-    border: solid 2px #ffffff;
+    background-color: #1f1b1b;
+    color: #ffffff;
+    border: solid 2px #1f1b1b;
     border-radius: 5px;
     cursor: pointer;
     width: 81%;
@@ -28,9 +38,9 @@
 
 .form_actions button:active,
 .form_actions button:hover {
-    border-color: #ffe000;
-    background-color: #ffe000;
-    color: #ffffff
+    border-color: #eda31b;
+    background-color: #eda31b;
+    color: #1f1b1b
 }
 
 .form_actions button:disabled {
@@ -39,4 +49,9 @@
     color: #8c8c8c;
     cursor: not-allowed;
 
+}
+
+.err-modal {
+    color: red !important;
+    background-color: red;
 }

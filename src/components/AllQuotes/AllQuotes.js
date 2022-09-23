@@ -1,32 +1,36 @@
 import "./AllQuotes.css";
 import SingleQuote from "./SingleQuote";
-import { useContext } from "react";
-import QuotesContext from "../../store/quotes-context";
+import { useEffect } from "react";
+import { useStore } from "../../hooks-store/store";
+import useHttp from "../../hooks/http-hook";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const AllQuotes = (props) => {
-  const quotesCtx = useContext(QuotesContext);
+  const state = useStore()[0];
+  const [sendGetReq, isLoading] = useHttp();
+
+  useEffect(() => {
+    sendGetReq({ url: "http://localhost:5000/quotes" }, "GETALL");
+  }, []);
 
   return (
     <div className="quote-list">
-      {quotesCtx.isLoading ? (
-        <div className="loading">
-          <h1>Loading...</h1>
-        </div>
-      ) : (
+      {!isLoading ? (
         <ul>
-          {quotesCtx.allQuotes &&
-            quotesCtx.allQuotes.map((item) => {
-              return (
-                <li key={item._id}>
-                  <SingleQuote
-                    id={item._id}
-                    quote={item.content}
-                    auther={item.author}
-                  />
-                </li>
-              );
-            })}
+          {state.quotes.map((item) => {
+            return (
+              <li key={item.id}>
+                <SingleQuote
+                  id={item.id}
+                  quote={item.content}
+                  auther={item.author}
+                />
+              </li>
+            );
+          })}
         </ul>
+      ) : (
+        <LoadingSpinner />
       )}
     </div>
   );
