@@ -1,33 +1,47 @@
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Header from "./components/Navigation/Header";
-import NewQuotePage from "./Pages/NewQuotePage";
-import AllQuotes from "./components/AllQuotes/AllQuotes";
-import { Fragment } from "react";
-import configureQuotesStore from "./hooks-store/quotes-store";
+import Header from "./shared/components/Navigation/Header";
+import NewQuotePage from "./quotes/pages/NewQuotePage";
+import AllQuotes from "./quotes/components/AllQuotes/AllQuotes";
+import { Fragment, useEffect } from "react";
+import configureQuotesStore from "./shared/hooks-store/quotes-store";
+import configureAuthStore from "./shared/hooks-store/auth-store";
+import AuthPage from "./users/pages/AuthPage";
+import UserPage from "./users/pages/UserPage";
+import { useStore } from "./shared/hooks-store/store";
 
+configureAuthStore();
 configureQuotesStore();
 function App() {
+  const dispatch = useStore()[1];
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+    if (storedData && storedData.token) {
+      dispatch("login", storedData);
+    }
+  }, []);
   return (
     <Fragment>
       <Header />
       <main>
         <Switch>
-          <Route path="/quotes" exact>
+          <Route path="/auth" exact>
+            <AuthPage />
+          </Route>
+          <Route path="/" exact>
             <AllQuotes />
           </Route>
 
           <Route path="/new-quote" exact>
             <NewQuotePage />
           </Route>
-
-          <Redirect to="/quotes" />
+          <Route path={`/my-account`}>
+            <UserPage />
+          </Route>
+          <Redirect to={"/"} />
         </Switch>
       </main>
-      <footer className="footer">
-        <p>Make Contect : 0524563239</p>
-        <p>all-right-reserved</p>
-      </footer>
     </Fragment>
   );
 }

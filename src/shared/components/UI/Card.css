@@ -1,0 +1,21 @@
+.card {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 1rem 0 0 0px;
+    border-radius: 15px;
+    margin: auto;
+    text-shadow: 1px 1px 1px #000000;
+    box-shadow: 2px 2px 6px 2px #00000057;
+    background: url(https://images.unsplash.com/photo-1580127645995-d43fe9598711?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjg4MzU2OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
+    background-size: cover;
+    color: wheat;
+    background-color: #11110fa8;
+    padding: 1rem;
+    border-radius: 5px;
+}

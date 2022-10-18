@@ -1,0 +1,37 @@
+.form_actions {
+    display: flex;
+    justify-content: center;
+}
+
+.form_actions button {
+    background-color: #3e3a3a;
+    color: #ffffff;
+    border: solid 2px #3e3a3a;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 41vw;
+    margin-top: 1rem;
+    height: 2rem;
+    font-weight: 900;
+
+}
+
+.form_actions button:active,
+.form_actions button:hover {
+    border-color: #eda31b;
+    background-color: #eda31b;
+    color: #3e3a3a
+}
+
+.form_actions button:disabled {
+    border-color: #aeaeae;
+    background-color: #c2c2c2;
+    color: #8c8c8c;
+    cursor: not-allowed;
+
+}
+
+.err-modal {
+    color: red !important;
+    background-color: red;
+}
