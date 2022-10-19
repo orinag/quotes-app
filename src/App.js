@@ -16,7 +16,9 @@ function App() {
   const dispatch = useStore()[1];
 
   useEffect(() => {
+    
     const storedData = JSON.parse(localStorage.getItem("userData"));
+    
     if (storedData && storedData.token) {
       dispatch("login", storedData);
     }
@@ -29,15 +31,15 @@ function App() {
           <Route path="/auth" exact>
             <AuthPage />
           </Route>
-          <Route path="/" exact>
-            <AllQuotes />
-          </Route>
 
           <Route path="/new-quote" exact>
             <NewQuotePage />
           </Route>
-          <Route path={`/my-account`}>
+          <Route path="/my-account" exact>
             <UserPage />
+          </Route>
+          <Route path="/" exact>
+            <AllQuotes />
           </Route>
           <Redirect to={"/"} />
         </Switch>

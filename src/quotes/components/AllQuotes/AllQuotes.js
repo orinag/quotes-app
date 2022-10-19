@@ -34,7 +34,6 @@ const AllQuotes = () => {
       ) : (
         <ul>
           {state.quotes.map((item) => {
-            console.log(item);
             return (
               <li key={item.id}>
                 <SingleQuote

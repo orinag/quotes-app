@@ -27,6 +27,7 @@ const UserItem = (props) => {
       history.push("/");
     }
   };
+  console.log(state.currentUser);
 
   return (
     <Fragment>
@@ -57,7 +58,7 @@ const UserItem = (props) => {
           <div className="avatar_profile">
             <Avatar src="" alt={state.currentUser.username} />
             <div className="user_details">
-              <ul>
+              <ul className="user-details_box">
                 <li>
                   <label>Username: </label>
                   <h6> {state.currentUser.username}</h6>
@@ -65,10 +66,6 @@ const UserItem = (props) => {
                 <li>
                   <label>Email: </label>
                   <h6> {state.currentUser.email}</h6>
-                </li>
-                <li>
-                  <label>Quotes: </label>
-                  <h6> uploaded {props.quotes?.length} Quotes</h6>
                 </li>
               </ul>
             </div>

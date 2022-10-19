@@ -24,6 +24,7 @@ const NavLinks = (props) => {
             </li>
             <li>
               <NavLink
+                exact
                 to="/new-quote"
                 className="btn"
                 id="new-quote"
@@ -34,7 +35,8 @@ const NavLinks = (props) => {
             </li>
             <li>
               <NavLink
-                to="/quotes"
+                exact
+                to="/"
                 className="btn"
                 id="all-quotes"
                 activeClassName="active"
@@ -45,6 +47,7 @@ const NavLinks = (props) => {
 
             <li>
               <NavLink
+                exact
                 to={`/my-account`}
                 className="btn"
                 id="my-account"
@@ -59,6 +62,7 @@ const NavLinks = (props) => {
             <li>
               <NavLink
                 to="/auth"
+                exact
                 className="btn"
                 id="auth"
                 activeClassName="active"
@@ -69,7 +73,8 @@ const NavLinks = (props) => {
 
             <li>
               <NavLink
-                to="/quotes"
+                to="/"
+                exact
                 className="btn"
                 id="all-quotes"
                 activeClassName="active"

@@ -17,11 +17,7 @@ const Header = (props) => {
   };
   return (
     <Fragment>
-      {drawerIsOpen && (
-        <Backdrop onClick={handleDrawerClose}>
-          <SideDrawer />
-        </Backdrop>
-      )}
+      {drawerIsOpen && <SideDrawer onClick={handleDrawerClose} />}
       <div className="header">
         <div className="nav-bar">
           <h1 className="title">MyQuotes</h1>
@@ -38,9 +34,13 @@ const Header = (props) => {
         </div>
 
         <div className="wellcome-card">
-          <h3>{`Wellcome ${
-            state.token ? state.currentUser.username : "User"
-          } !`}</h3>
+          <h3>
+            {`Wellcome
+             ${state.token ? state.currentUser.username : "User"} !`}
+          </h3>
+          <div className="bookmark">
+            <div className="bookmark2"></div>
+          </div>
         </div>
       </div>
     </Fragment>

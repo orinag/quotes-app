@@ -16,3 +16,11 @@
 .sidedrawer li {
     background-color: #f5deb3;
 }
+
+
+
+@media (min-width: 500px) {
+    .sidedrawer {
+        display: none;
+    }
+}

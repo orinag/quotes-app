@@ -12,8 +12,7 @@ const SingleQuote = (props) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [deleteReq, isLoading, err, clearErr] = useHttp();
   const state = useStore()[0];
-  console.log(props.creatorId);
-  console.log(state);
+
   const deleteModalHandle = () => {
     setDeleteModal(true);
   };
@@ -53,11 +52,10 @@ const SingleQuote = (props) => {
       <div className="details">
         <p className="username">uploaded by {props.creatorName} at</p>
         <Card className="quote">
-          <blockquote className="border-bottom">
+          <blockquote className="blockquote">
             <strong className="mark-top">❝</strong>
             <br />
             <h1> {props.quote}</h1>
-
             <br />
             <strong className="mark-bot">❞</strong>
           </blockquote>
@@ -66,11 +64,14 @@ const SingleQuote = (props) => {
             <div className="actions">
               <button
                 type="button"
-                className="delete"
+                className="btn-warning"
                 id={`${props.id} delete`}
                 onClick={deleteModalHandle}
               >
-                🚫
+                DELETE
+              </button>
+              <button type="button" className="btn" id={`${props.id} edit`}>
+                EDIT
               </button>
             </div>
           )}
