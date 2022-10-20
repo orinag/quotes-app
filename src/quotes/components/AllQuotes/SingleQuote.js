@@ -16,6 +16,9 @@ const SingleQuote = (props) => {
   const deleteModalHandle = () => {
     setDeleteModal(true);
   };
+  const deleteModalClose = () => {
+    setDeleteModal(false);
+  };
   const deleteHandle = () => {
     setDeleteModal(false);
     deleteReq("DELETE", {
@@ -27,30 +30,29 @@ const SingleQuote = (props) => {
   };
   return (
     <Fragment>
-      {(deleteModal || err) && (
-        <Backdrop>
-          <Modal
-            content={
-              err ? err.message : "Are you sure you want to delete this Quote?"
-            }
-            button={err ? "OK" : "Yes"}
-            onClick={
-              err
-                ? () => {
-                    clearErr();
-                  }
-                : deleteHandle
-            }
-          />
-        </Backdrop>
-      )}
+      <Modal
+        show={deleteModal}
+        content={
+          err ? err.message : "Are you sure you want to delete this Quote?"
+        }
+        button={err ? "OK" : "Yes"}
+        onClose={deleteModalClose}
+        onClick={
+          err
+            ? () => {
+                clearErr();
+              }
+            : deleteHandle
+        }
+      />
+
       {isLoading && (
         <Backdrop className="centered">
           <LoadingSpinner />
         </Backdrop>
       )}
       <div className="details">
-        <p className="username">uploaded by {props.creatorName} at</p>
+        <p className="username">uploaded by {props.creatorName}</p>
         <Card className="quote">
           <blockquote className="blockquote">
             <strong className="mark-top">❝</strong>

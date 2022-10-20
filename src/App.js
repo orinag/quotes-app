@@ -1,3 +1,5 @@
+import { CSSTransition } from "react-transition-group";
+
 import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./shared/components/Navigation/Header";
@@ -16,9 +18,8 @@ function App() {
   const dispatch = useStore()[1];
 
   useEffect(() => {
-    
     const storedData = JSON.parse(localStorage.getItem("userData"));
-    
+
     if (storedData && storedData.token) {
       dispatch("login", storedData);
     }

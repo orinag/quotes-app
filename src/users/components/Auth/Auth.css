@@ -1,3 +1,36 @@
+.scene {
+
+    perspective: 600px;
+}
+
+.card {
+
+    transition: transform 1s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card__face {
+    position: absolute;
+
+
+
+
+}
+
+
+.card__face--back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    transform: rotateY(180deg);
+}
+
 .auth-title {
     text-align: center;
     color: #eda31b;
@@ -6,6 +39,8 @@
     font-size: 1.4rem;
 
 }
+
+
 
 .form_actions {
     display: flex;
@@ -18,7 +53,7 @@
     border: solid 2px #3e3a3a;
     border-radius: 5px;
     cursor: pointer;
-    width: 41vw;
+    width: 15rem;
     margin: 1rem 0;
     height: 2rem;
     font-weight: 900;
@@ -56,26 +91,11 @@
     text-shadow: none;
 }
 
-.sign-in_button {
-    background-color: #eda31b;
-    margin: 1rem 0;
-    color: #3e3a3a;
-    padding: 4px;
-    text-decoration: none;
-    border-radius: 5px;
-    width: 41vw;
-    text-align: center;
-    font-weight: 900;
-    border: solid 4px #eda31b;
-    font-size: 1.5rem;
 
-}
 
-.sign-in_button :active,
-.sign-in_button:hover {
-    background-color: #3e3a3a;
-    color: #eda31b;
-    cursor: pointer;
+.btn_flip:active,
+.btn_flip:hover {
+    border: solid 2px #eda31b;
 
 }
 
@@ -83,4 +103,50 @@
 .err-modal {
     color: red !important;
     background-color: red;
+}
+
+.fade-slide-enter {}
+
+.fade-slide-enter-active {
+    animation: openModal 0.3s ease-in-out forwards;
+}
+
+.fade-slide-exit {}
+
+.fade-slide-exit-active {
+    animation: closeModal 0.3s ease-in-out;
+}
+
+@keyframes openModal {
+    0% {
+
+        background-color: rotateY(0);
+    }
+
+    50% {
+
+        transform: rotateY(90deg);
+    }
+
+    100% {
+
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes closeModal {
+    0% {
+
+        transform: rotateY(180deg);
+    }
+
+    50% {
+
+        transform: rotateY(90deg);
+    }
+
+    100% {
+
+        transform: rotateY(0deg);
+    }
 }

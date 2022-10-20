@@ -42,7 +42,6 @@ const useHttp = () => {
 
           case "ADD":
             dispatch("addQuote", responseData.newQuote);
-            history.go("/quotes");
 
             break;
 

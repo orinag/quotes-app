@@ -24,7 +24,7 @@ const QuoteForm = () => {
   const history = useHistory();
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(state.currentUser);
+
     const newQuote = {
       author: formState.inputs.author.value,
       content: formState.inputs.quote.value,
@@ -45,7 +45,8 @@ const QuoteForm = () => {
 
     document.getElementById("author").value = "";
     document.getElementById("quote").value = "";
-    history.push("/quotes");
+    history.push("/");
+    history.goForward();
   };
 
   return (
@@ -79,6 +80,7 @@ const QuoteForm = () => {
         </div>
         <div className="form_actions">
           <button
+            id="add-quote"
             type="submit"
             disabled={
               !formState.isValid ||

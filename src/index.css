@@ -38,7 +38,7 @@ main {
 
 .form {
 
-  width: 50vw;
+  width: 20rem;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,11 @@ main {
   text-shadow: 2px 2px 2px #000000bd;
   background: url(https://images.unsplash.com/photo-1580127645995-d43fe9598711?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjg4MzU2OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
   background-size: cover;
+  transition: all 2s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
+
 
 
 .btn {
