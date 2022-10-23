@@ -3,31 +3,30 @@
     perspective: 600px;
 }
 
-.card {
+.auth_card {
 
     transition: transform 1s;
     transform-style: preserve-3d;
-
+    box-shadow: none;
     position: relative;
 }
 
-.card.is-flipped {
+.auth_card.is-flipped {
     transform: rotateY(180deg);
 }
 
-.card__face {
+.auth_card__face {
     position: absolute;
-
-
-
-
+    box-shadow: 3px 4px 12px 1px #00000070;
+    border-radius: 15px;
 }
 
 
-.card__face--back {
+.auth_card__face--back {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-
+    box-shadow: 3px 4px 12px 1px #00000070;
+    border-radius: 15px;
     transform: rotateY(180deg);
 }
 
@@ -103,50 +102,4 @@
 .err-modal {
     color: red !important;
     background-color: red;
-}
-
-.fade-slide-enter {}
-
-.fade-slide-enter-active {
-    animation: openModal 0.3s ease-in-out forwards;
-}
-
-.fade-slide-exit {}
-
-.fade-slide-exit-active {
-    animation: closeModal 0.3s ease-in-out;
-}
-
-@keyframes openModal {
-    0% {
-
-        background-color: rotateY(0);
-    }
-
-    50% {
-
-        transform: rotateY(90deg);
-    }
-
-    100% {
-
-        transform: rotateY(180deg);
-    }
-}
-
-@keyframes closeModal {
-    0% {
-
-        transform: rotateY(180deg);
-    }
-
-    50% {
-
-        transform: rotateY(90deg);
-    }
-
-    100% {
-
-        transform: rotateY(0deg);
-    }
 }

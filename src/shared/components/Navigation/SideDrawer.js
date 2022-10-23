@@ -1,14 +1,21 @@
+import { CSSTransition } from "react-transition-group";
 import Backdrop from "../UI/Backdrop";
 import NavLinks from "./NavLinks";
 import "./SideDrawer.css";
 
 const SideDrawer = (props) => {
   return (
-    <aside className="sidedrawer">
-      <Backdrop onClick={props.onClick}>
-        <NavLinks />
-      </Backdrop>
-    </aside>
+    <CSSTransition
+      mountOnEnter
+      unmountOnExit
+      in={props.drawerIsOpen}
+      timeout={300}
+      classNames="slide-aside"
+    >
+      <aside className="sidedrawer">
+        <NavLinks onClick={props.handleDrawerClose} />
+      </aside>
+    </CSSTransition>
   );
 };
 

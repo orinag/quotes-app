@@ -34,8 +34,14 @@
     }
 
     .quote-list ul {
-        list-style: none;
+        display: flex;
+        flex-direction: column;
         padding: 1rem;
-        margin: 0;
+        gap: 10rem;
+    }
+
+    .quote-list li {
+        height: 30vh;
+
     }
 }

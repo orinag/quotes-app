@@ -62,12 +62,15 @@ main {
   height: 1.6rem;
   text-decoration: none;
   background: #eda31b;
+  border: solid 2px #3e3a3a !important;
+  border-bottom-width: 6px !important;
   padding: 0 1.5rem;
   border: none;
   cursor: pointer;
   display: block;
   margin: 3px;
   margin-top: 0;
+  border-radius: 5px;
 
 }
 
@@ -75,10 +78,16 @@ main {
 
 .btn:hover,
 .btn:active {
-  color: #eda31b;
-  background-color: #3e3a3a;
+  color: #3e3a3a;
+  background-color: #ffbf48;
   padding: 0 1.5rem;
 
+
+}
+
+.btn:active {
+  border-bottom-width: 2px !important;
+  background-color: #ffbf48;
 
 }
 
@@ -143,13 +152,6 @@ main {
 
 }
 
-.auth-page {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  gap: 8rem;
-  justify-content: center;
-}
 
 @media (max-width: 500px) {
   main {

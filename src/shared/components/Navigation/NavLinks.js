@@ -14,9 +14,9 @@ const NavLinks = (props) => {
   console.log(state);
   return (
     <Fragment>
-      <nav className="navlinks">
+      <nav className="navlinks" onClick={props.onClick}>
         {state.token ? (
-          <ul className="nav-list">
+          <ul className="nav-list" onClick={props.handle}>
             <li>
               <button className="btn" id="logout" onClick={handleLogout}>
                 LOGOUT

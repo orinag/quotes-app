@@ -1,15 +1,12 @@
 import { Fragment } from "react";
-import { useHistory } from "react-router-dom";
 
 import "./Auth.css";
 import Input from "../../../shared/components/FormElements/Input";
-import { useStore } from "../../../shared/hooks-store/store";
 import useForm from "../../../shared/hooks/form-hook";
 import useHttp from "../../../shared/hooks/http-hook";
 import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner";
 import Backdrop from "../../../shared/components/UI/Backdrop";
 import Modal from "../../../shared/components/UI/Modal";
-import { CSSTransition } from "react-transition-group";
 
 const SignUp = (props) => {
   const [authReq, isLoading, err, clearErr] = useHttp();
@@ -53,11 +50,7 @@ const SignUp = (props) => {
         button="Close"
         show={err}
       />
-      {isLoading && (
-        <Backdrop className="centered">
-          <LoadingSpinner />
-        </Backdrop>
-      )}
+      {isLoading && <LoadingSpinner />}
 
       <form className="form" onSubmit={SignUpSubmitHandle}>
         <div className="auth-title">

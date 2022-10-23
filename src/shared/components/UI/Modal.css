@@ -71,6 +71,23 @@
 }
 
 
+
+@media (max-width:500px) {
+    .modal {
+        left: 3%;
+        top: 30%;
+        width: 23rem;
+    }
+
+}
+
+
+
+
+
+
+
+
 .fade-slide-enter {}
 
 .fade-slide-enter-active {

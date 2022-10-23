@@ -5,23 +5,22 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 
 const Auth = (props) => {
-  let card;
-  useEffect(() => {
-    card = document.getElementById("card");
-  }, card);
-
+  const [isFlipped, setIsFlipped] = useState(false);
   const switchHandle = () => {
-    card.classList.toggle("is-flipped");
+    setIsFlipped((prevIsFlipped) => !prevIsFlipped);
   };
 
   return (
     <Fragment>
-      <div className="scene scene--card">
-        <div id="card" className="card">
-          <div className="card__face card__face--front">
+      <div className="scene scene--card ">
+        <div
+          id="card"
+          className={`card auth_card ${isFlipped && "is-flipped"}`}
+        >
+          <div className="auth_card__face auth_card__face--front">
             <Login switchHandle={switchHandle} />
           </div>
-          <div className="card__face card__face--back">
+          <div className="auth_card__face auth_card__face--back">
             <SignUp switchHandle={switchHandle} />
           </div>
         </div>

@@ -17,7 +17,12 @@ const Header = (props) => {
   };
   return (
     <Fragment>
-      {drawerIsOpen && <SideDrawer onClick={handleDrawerClose} />}
+      {drawerIsOpen && <Backdrop onClick={handleDrawerClose} />}
+      <SideDrawer
+        handleDrawerClose={handleDrawerClose}
+        drawerIsOpen={drawerIsOpen}
+      />
+
       <div className="header">
         <div className="nav-bar">
           <h1 className="title">MyQuotes</h1>
