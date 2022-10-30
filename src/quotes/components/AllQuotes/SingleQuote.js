@@ -67,12 +67,11 @@ const SingleQuote = (props) => {
               <button
                 type="button"
                 className="btn-warning"
-                id={`${props.id} delete`}
                 onClick={deleteModalHandle}
               >
                 DELETE
               </button>
-              <button type="button" className="btn" id={`${props.id} edit`}>
+              <button type="button" className="btn" id="edit">
                 EDIT
               </button>
             </div>

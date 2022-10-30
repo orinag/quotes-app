@@ -1,17 +1,20 @@
 import { Fragment, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useStore } from "../../hooks-store/store";
+import useAuth from "../../hooks/auth-hook";
 import "./NavLinks.css";
 
 const NavLinks = (props) => {
+  const logout = useAuth()[2];
   const [state, dispatch] = useStore();
   const history = useHistory();
 
   const handleLogout = () => {
     dispatch("logout");
+    logout();
     history.push("/quotes");
   };
-  console.log(state);
+
   return (
     <Fragment>
       <nav className="navlinks" onClick={props.onClick}>

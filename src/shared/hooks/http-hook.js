@@ -1,8 +1,10 @@
 import { useCallback, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useStore } from "../hooks-store/store";
+import useAuth from "./auth-hook";
 
 const useHttp = () => {
+  const [token, login, logout, userId] = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState();
   const dispatch = useStore()[1];
@@ -15,6 +17,7 @@ const useHttp = () => {
 
   const sendReq = useCallback(
     async (actionKey, regConfig) => {
+      setErr(null);
       try {
         setIsLoading(true);
         console.log("Starting " + actionKey);
@@ -42,6 +45,7 @@ const useHttp = () => {
 
           case "ADD":
             dispatch("addQuote", responseData.newQuote);
+            history.go("/quotes");
 
             break;
 
@@ -54,11 +58,14 @@ const useHttp = () => {
 
           case "SIGNUP":
             dispatch("signUp", responseData.user);
+            login(responseData.user, responseData.user.token);
             history.push("/quotes");
             break;
 
           case "LOGIN":
             dispatch("login", responseData.user);
+
+            login(responseData.user, responseData.user.token);
             history.push("/quotes");
             break;
 
@@ -77,6 +84,7 @@ const useHttp = () => {
           case "DELETEUSER":
             if (response.ok) {
               dispatch("logout");
+              logout();
               history.push("/quotes");
             }
             break;

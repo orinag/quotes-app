@@ -14,19 +14,9 @@ const configureStore = () => {
         token: user.token,
       };
 
-      localStorage.setItem(
-        "userData",
-        JSON.stringify({
-          userId: user.userId,
-          username: user.username,
-          email: user.email,
-          token: user.token,
-        })
-      );
       return newState;
     },
     logout: () => {
-      localStorage.clear();
       return {
         currentUser: {},
         token: null,
@@ -42,15 +32,7 @@ const configureStore = () => {
         },
         token: user.token,
       };
-      localStorage.setItem(
-        "userData",
-        JSON.stringify({
-          userId: user.userId,
-          username: user.username,
-          email: user.email,
-          token: user.token,
-        })
-      );
+
       return newState;
     },
     deleteUser: () => {
@@ -65,7 +47,7 @@ const configureStore = () => {
         ...curState,
         currentQuotes: quotes,
       };
-      console.log(newState);
+
       return newState;
     },
   };

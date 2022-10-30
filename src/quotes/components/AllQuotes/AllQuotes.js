@@ -33,7 +33,7 @@ const AllQuotes = () => {
         <LoadingSpinner />
       ) : (
         <ul>
-          {state.quotes.map((item) => {
+          {state.quotes.map((item, index) => {
             return (
               <li key={item.id}>
                 <SingleQuote

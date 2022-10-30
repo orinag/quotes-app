@@ -46,11 +46,10 @@ main {
   border-radius: 15px;
   margin: auto;
   text-shadow: 2px 2px 2px #000000bd;
-  background: url(https://images.unsplash.com/photo-1580127645995-d43fe9598711?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjg4MzU2OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
-  background-size: cover;
   transition: all 2s ease-in-out;
   transform-style: preserve-3d;
   perspective: 1000px;
+
 }
 
 
@@ -62,15 +61,13 @@ main {
   height: 1.6rem;
   text-decoration: none;
   background: #eda31b;
-  border: solid 2px #3e3a3a !important;
-  border-bottom-width: 6px !important;
   padding: 0 1.5rem;
   border: none;
   cursor: pointer;
   display: block;
   margin: 3px;
   margin-top: 0;
-  border-radius: 5px;
+
 
 }
 
@@ -79,15 +76,15 @@ main {
 .btn:hover,
 .btn:active {
   color: #3e3a3a;
-  background-color: #ffbf48;
+  background-color: #eda31b;
   padding: 0 1.5rem;
 
 
 }
 
 .btn:active {
-  border-bottom-width: 2px !important;
-  background-color: #ffbf48;
+
+  background-color: #eda31b;
 
 }
 
