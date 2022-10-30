@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 
 import "./Auth.css";
-import SignUp from "./SignUp";
-import Login from "./Login";
+import SignUp from "./SignUp/SignUp";
+import Login from "./Login/Login";
 
 const Auth = (props) => {
   const [isFlipped, setIsFlipped] = useState(false);
