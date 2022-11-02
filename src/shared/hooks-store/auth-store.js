@@ -3,7 +3,6 @@ import { initStore } from "./store";
 const configureStore = () => {
   const actions = {
     login: (curState, user) => {
-      console.log(user);
       let newState = {
         ...curState,
         currentUser: {

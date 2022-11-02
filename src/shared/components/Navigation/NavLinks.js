@@ -12,7 +12,7 @@ const NavLinks = (props) => {
   const handleLogout = () => {
     dispatch("logout");
     logout();
-    history.push("/quotes");
+    history.push("/");
   };
 
   return (

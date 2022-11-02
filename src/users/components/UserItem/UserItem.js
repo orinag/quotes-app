@@ -22,12 +22,9 @@ const UserItem = (props) => {
       body: null,
       headers: { Authorization: "Bearer " + state.token },
     });
-
-    if (!err && !isLoading) {
-      history.push("/");
-    }
+    console.log(err);
+    console.log(isLoading);
   };
-  console.log(state.currentUser);
 
   return (
     <Fragment>

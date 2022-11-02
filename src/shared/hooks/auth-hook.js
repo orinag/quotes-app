@@ -14,7 +14,7 @@ const useAuth = () => {
     setUserId(user.userId);
     const tokenExpTime =
       expTime || new Date(new Date().getTime() + 1000 * 60 * 60);
-    console.log(tokenExpTime);
+
     setTokenExpTime(tokenExpTime);
     dispatch("login", { ...user, token });
     localStorage.setItem(
@@ -40,7 +40,6 @@ const useAuth = () => {
 
   useEffect(() => {
     if (token && tokenExpTime) {
-      console.log(tokenExpTime);
       const remainingTime = tokenExpTime.getTime() - new Date().getTime();
       logoutTimer = setTimeout(logout, remainingTime);
     } else {
@@ -56,7 +55,6 @@ const useAuth = () => {
       storedData.token &&
       new Date(storedData.expiration) > new Date()
     ) {
-      console.log(storedData);
       login(storedData.user, storedData.token, new Date(storedData.expiration));
     }
   }, [login]);

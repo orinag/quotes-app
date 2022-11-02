@@ -18,7 +18,7 @@ describe("auth and quotes", () => {
     cy.get("#login-submit").click();
   });
 
-  it.only("adding quotes and delete succesfully", () => {
+  it("adding quotes and delete succesfully", () => {
     cy.visit("/auth");
     /* ==== Generated with Cypress Studio ==== */
     cy.get('[name="login_email"]').type("test@gmail.com");
@@ -33,6 +33,10 @@ describe("auth and quotes", () => {
     cy.get("#author-input").type("Test2");
     cy.get("#content-textarea").type("Testings2");
     cy.get("#add-quote-submit").click();
-    cy.get(":nth-child(5) > .details > .card > .actions > .btn-warning");
+  });
+
+  it("delete user and its quotes succesfully", () => {
+    cy.get("#my-account").click();
+    cy.get("#delete-user").click();
   });
 });

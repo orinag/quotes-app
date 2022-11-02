@@ -45,28 +45,28 @@ const useHttp = () => {
 
           case "ADD":
             dispatch("addQuote", responseData.newQuote);
-            history.go("/quotes");
+            history.go("/");
 
             break;
 
           case "DELETE":
             dispatch("deleteQuote", responseData.message);
             if (response.ok) {
-              history.go("/quotes");
+              history.go("/");
             }
             break;
 
           case "SIGNUP":
             dispatch("signUp", responseData.user);
             login(responseData.user, responseData.user.token);
-            history.push("/quotes");
+            history.push("/");
             break;
 
           case "LOGIN":
             dispatch("login", responseData.user);
 
             login(responseData.user, responseData.user.token);
-            history.push("/quotes");
+            history.push("/");
             break;
 
           case "GETUSERS":
@@ -85,7 +85,7 @@ const useHttp = () => {
             if (response.ok) {
               dispatch("logout");
               logout();
-              history.push("/quotes");
+              history.go("/");
             }
             break;
 
@@ -95,7 +95,7 @@ const useHttp = () => {
         setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
-        console.log(err);
+
         setErr(err);
       }
     },
