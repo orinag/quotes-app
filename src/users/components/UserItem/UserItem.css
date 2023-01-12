@@ -25,10 +25,10 @@
 
 .user-details_box {
     border-radius: 15px;
-    padding: 1rem 6rem;
+    padding: 1rem 4rem;
     margin: 1rem 0;
-    text-shadow: 1px 1px 1px black, -2px 4px 5px black;
     line-height: 5px;
+    background-color: #eda31b;
 }
 
 .user_actions {

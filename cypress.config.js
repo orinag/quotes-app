@@ -5,6 +5,8 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {},
     baseUrl: "http://localhost:3000",
     experimentalStudio: true,
+    defaultCommandTimeout: 10000,
+    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx,feature}",
   },
 
   component: {

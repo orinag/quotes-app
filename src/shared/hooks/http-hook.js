@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { useStore } from "../hooks-store/store";
 import useAuth from "./auth-hook";
 
@@ -7,20 +6,20 @@ const useHttp = () => {
   const [token, login, logout, userId] = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState();
-  const dispatch = useStore()[1];
-  const history = useHistory();
+  const dispatch = useStore(false)[1];
 
   const clearErr = () => {
-    console.log("RESETTING ERROR!");
     setErr(null);
   };
 
   const sendReq = useCallback(
     async (actionKey, regConfig) => {
       setErr(null);
+
       try {
         setIsLoading(true);
         console.log("Starting " + actionKey);
+        console.log(regConfig);
 
         const response = await fetch(
           regConfig.url,
@@ -45,28 +44,29 @@ const useHttp = () => {
 
           case "ADD":
             dispatch("addQuote", responseData.newQuote);
-            history.go("/");
 
             break;
 
+          case "EDIT":
+            dispatch("editQuote", responseData.quote);
+
+            break;
           case "DELETE":
             dispatch("deleteQuote", responseData.message);
-            if (response.ok) {
-              history.go("/");
-            }
+            console.log(responseData);
             break;
 
           case "SIGNUP":
             dispatch("signUp", responseData.user);
             login(responseData.user, responseData.user.token);
-            history.push("/");
+
             break;
 
           case "LOGIN":
             dispatch("login", responseData.user);
 
             login(responseData.user, responseData.user.token);
-            history.push("/");
+
             break;
 
           case "GETUSERS":
@@ -85,7 +85,6 @@ const useHttp = () => {
             if (response.ok) {
               dispatch("logout");
               logout();
-              history.go("/");
             }
             break;
 
@@ -99,7 +98,7 @@ const useHttp = () => {
         setErr(err);
       }
     },
-    [dispatch]
+    [dispatch, login, logout]
   );
 
   return [sendReq, isLoading, err, clearErr];

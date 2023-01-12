@@ -1,19 +1,19 @@
-import { Fragment, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { Fragment, useCallback, memo } from "react";
+import { NavLink } from "react-router-dom";
 import { useStore } from "../../hooks-store/store";
 import useAuth from "../../hooks/auth-hook";
 import "./NavLinks.css";
 
-const NavLinks = (props) => {
+const NavLinks = memo((props) => {
+  console.log("RENDER");
   const logout = useAuth()[2];
-  const [state, dispatch] = useStore();
-  const history = useHistory();
+  const [state, dispatch] = useStore(false);
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
+    console.log("HELLO");
     dispatch("logout");
     logout();
-    history.push("/");
-  };
+  }, [logout, dispatch]);
 
   return (
     <Fragment>
@@ -90,6 +90,6 @@ const NavLinks = (props) => {
       </nav>
     </Fragment>
   );
-};
+});
 
 export default NavLinks;

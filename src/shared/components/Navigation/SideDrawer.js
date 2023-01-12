@@ -1,5 +1,4 @@
 import { CSSTransition } from "react-transition-group";
-import Backdrop from "../UI/Backdrop";
 import NavLinks from "./NavLinks";
 import "./SideDrawer.css";
 

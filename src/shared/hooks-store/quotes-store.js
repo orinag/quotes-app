@@ -3,15 +3,29 @@ import { initStore } from "./store";
 const configureStore = () => {
   const actions = {
     getQuotes: (curState, quotes) => {
-      curState = quotes;
+      const newState = curState;
+      newState.quotes = quotes;
 
-      return { quotes: quotes };
+      return { ...newState };
     },
     addQuote: (curState, newQuote) => {
-      return { ...curState, ...newQuote };
+      const newState = curState;
+      newState.quotes.push(newQuote);
+
+      return { ...newState };
+    },
+    editQuote: (curState, quote) => {
+      const quotes = curState.quotes;
+      const quoteIndex = curState.quotes.findIndex((q) => q.id === quote.id);
+      quotes[quoteIndex] = quote;
+
+      return { ...curState, quotes };
     },
     deleteQuote: (curState, quoteId) => {
-      return { ...curState };
+      const newState = curState;
+      newState.quotes.pop();
+
+      return { ...newState };
     },
   };
 

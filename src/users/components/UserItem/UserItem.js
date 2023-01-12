@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import { useHistory } from "react-router-dom";
+import { Fragment, memo } from "react";
 
 import "./UserItem.css";
 import Card from "../../../shared/components/UI/Card";
@@ -10,20 +9,17 @@ import Avatar from "../../../shared/components/UI/Avatar";
 import Backdrop from "../../../shared/components/UI/Backdrop";
 import Modal from "../../../shared/components/UI/Modal";
 
-const UserItem = (props) => {
-  const state = useStore()[0];
-  const history = useHistory();
+const UserItem = memo((props) => {
+  const state = useStore(false)[0];
   const [sendDeleteReq, isLoading, err, resetErr] = useHttp();
 
   const handleDelete = () => {
     sendDeleteReq("DELETEUSER", {
-      url: `http://localhost:5000/api/users/${state.currentUser.userId}/delete`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/users/${state.currentUser.userId}/delete`,
       method: "DELETE",
       body: null,
       headers: { Authorization: "Bearer " + state.token },
     });
-    console.log(err);
-    console.log(isLoading);
   };
 
   return (
@@ -81,6 +77,6 @@ const UserItem = (props) => {
       )}
     </Fragment>
   );
-};
+});
 
 export default UserItem;

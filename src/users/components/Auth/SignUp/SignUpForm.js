@@ -17,7 +17,7 @@ const SignUpForm = (props) => {
     };
 
     authReq("SIGNUP", {
-      url: "http://localhost:5000/api/users/sign-up",
+      url: process.env.REACT_APP_BACKEND_URL + "/users/sign-up",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
@@ -126,11 +126,7 @@ const SignUpForm = (props) => {
 
       <div className="sign-in-link">
         <p>already have an account?</p>
-        <button
-          type="button"
-          className="btn btn_flip"
-          onClick={props.switchHandle}
-        >
+        <button type="button" className="btn_flat" onClick={props.switchHandle}>
           Enter now!
         </button>
       </div>

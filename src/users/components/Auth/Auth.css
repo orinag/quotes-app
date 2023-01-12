@@ -20,8 +20,16 @@
     position: absolute;
     box-shadow: 3px 4px 12px 1px #00000070;
     border-radius: 15px;
-    background: url(https://images.unsplash.com/photo-1580127645995-d43fe9598711?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjg4MzU2OQ&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080);
-    background-size: cover;
+    background:
+
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+    opacity: 1;
     z-index: 9;
 }
 
@@ -51,42 +59,13 @@
     justify-content: center;
 }
 
-.form_actions button {
-    background-color: #3e3a3a;
-    color: #eda31b;
-    border: solid 2px #3e3a3a;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 15rem;
-    margin: 1rem 0;
-    height: 2rem;
-    font-weight: 900;
-    font-size: 1rem;
-
-}
-
-.form_actions button:active,
-.form_actions button:hover {
-    border-color: #eda31b;
-    background-color: #eda31b;
-    color: #3e3a3a;
-    font-weight: 900;
-}
-
-.form_actions button:disabled {
-    border-color: #aeaeae;
-    background-color: #c2c2c2;
-    color: #8c8c8c;
-    cursor: not-allowed;
-
-}
 
 .sign-in-link {
     position: relative;
     display: flex;
     flex-direction: column;
-    color: #eda31b;
-    background: #3e3a3a;
+    color: #3e3e3e;
+    background: #eda31b;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     align-items: center;
@@ -97,11 +76,7 @@
 
 
 
-.btn_flip:active,
-.btn_flip:hover {
-    border: solid 2px #eda31b;
 
-}
 
 
 .err-modal {

@@ -1,12 +1,12 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, memo } from "react";
 import "./Header.css";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 import Backdrop from "../UI/Backdrop";
 import { useStore } from "../../hooks-store/store";
 
-const Header = (props) => {
-  const state = useStore()[0];
+const Header = memo((props) => {
+  const state = useStore(false)[0];
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const handleDrawerOpen = () => {
     setDrawerIsOpen(true);
@@ -50,6 +50,6 @@ const Header = (props) => {
       </div>
     </Fragment>
   );
-};
+});
 
 export default Header;
