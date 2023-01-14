@@ -1,14 +1,14 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useCallback, useState } from "react";
 
 import "./Auth.css";
 import SignUp from "./SignUp/SignUp";
 import Login from "./Login/Login";
 
-const Auth = (props) => {
+const Auth = () => {
   const [isFlipped, setIsFlipped] = useState(false);
-  const switchHandle = () => {
+  const switchHandle = useCallback(() => {
     setIsFlipped((prevIsFlipped) => !prevIsFlipped);
-  };
+  }, []);
 
   return (
     <Fragment>

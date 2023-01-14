@@ -2,7 +2,6 @@ import { Fragment, memo } from "react";
 import { useHistory } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-import "./QuoteForm.css";
 import "../../../users/components/Auth/Forms.css";
 import { useStore } from "../../../shared/hooks-store/store";
 import useHttp from "../../../shared/hooks/http-hook";
@@ -10,26 +9,27 @@ import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner";
 import Backdrop from "../../../shared/components/UI/Backdrop";
 import Modal from "../../../shared/components/UI/Modal";
 
-const QuoteForm = memo((props) => {
+const EditForm = memo((props) => {
   const state = useStore(false)[0];
-  const [addQuoteReq, isLoading, err, clearErr] = useHttp();
+  const [editReq, isLoading, err, clearErr] = useHttp();
   const history = useHistory();
+
   const submitHandler = (values) => {
-    const newQuote = {
+    props.closeForm();
+    const editedQuote = {
       author: values.author,
       content: values.content,
     };
-    addQuoteReq("ADD", {
-      url: process.env.REACT_APP_BACKEND_URL + "/quotes/add-quote",
-      method: "POST",
+    editReq("EDIT", {
+      url: `${process.env.REACT_APP_BACKEND_URL}/quotes/${props.id}`,
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + state.token,
       },
       body: JSON.stringify({
-        author: newQuote.author,
-        content: newQuote.content,
-        creator: state.currentUser,
+        author: editedQuote.author,
+        content: editedQuote.content,
       }),
     });
     history.push("/");
@@ -54,7 +54,8 @@ const QuoteForm = memo((props) => {
         </Backdrop>
       )}
       <Formik
-        initialValues={{ author: "", content: "" }}
+        initialValues={{ author: props.author, content: props.content }}
+        enableReinitialize
         validate={(values) => {
           const errors = {};
           if (!values.author) {
@@ -77,7 +78,7 @@ const QuoteForm = memo((props) => {
         }}
       >
         {({ isSubmitting }) => (
-          <Form className="form form-control quotes-form">
+          <Form className="form form-control">
             <div className="errs_container">
               <ErrorMessage className="invalid" name="author" component="div" />
               <ErrorMessage
@@ -100,7 +101,7 @@ const QuoteForm = memo((props) => {
               rows={10}
             />
             <button
-              id="add-quote-submit"
+              id="edit-quote-submit"
               className="btn"
               type="submit"
               disabled={isSubmitting}
@@ -114,7 +115,7 @@ const QuoteForm = memo((props) => {
   );
 });
 
-export default QuoteForm;
+export default EditForm;
 
 /*<form className="form" onSubmit={submitHandler}>
         <div className="author_input">

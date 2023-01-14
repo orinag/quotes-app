@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useCallback } from "react";
 
 import "../Forms.css";
 import Modal from "../../../../shared/components/UI/Modal";
@@ -9,21 +9,24 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 const LoginForm = (props) => {
   const [authReq, isLoading, err, clearErr] = useHttp();
 
-  const loginSubmitHandler = (values) => {
-    const userInputs = {
-      email: values.login_email,
-      login_password: values.login_password,
-    };
-    console.log(userInputs);
-    authReq("LOGIN", {
-      url: "http://localhost:5000/api/users/login",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userInputs),
-    });
-  };
+  const loginSubmitHandler = useCallback(
+    (values) => {
+      const userInputs = {
+        email: values.login_email,
+        password: values.login_password,
+      };
+
+      authReq("LOGIN", {
+        url: process.env.REACT_APP_BACKEND_URL + "/users/login",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userInputs),
+      });
+    },
+    [authReq]
+  );
   return (
     <Fragment>
       <Modal
@@ -104,7 +107,7 @@ const LoginForm = (props) => {
         <button
           id="flip-mode-button"
           type="button"
-          className="btn btn_flip"
+          className="btn_flat"
           onClick={props.switchHandle}
         >
           Create one now!

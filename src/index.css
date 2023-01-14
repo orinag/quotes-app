@@ -7,12 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background-color: #efdcca;
-  background-image:
+  background: url(./assets/background-img.jpg);
+  background-size: cover;
+  opacity: 1;
+  /*background-image:
     linear-gradient(90deg, transparent 79px, #abced499 79px, #abced4ad 81px, transparent 81px),
     linear-gradient(rgba(207, 184, 158, 0.374) .1em, transparent .1em);
-  background-size: 100% 1.2em;
-  opacity: 1;
-
+  background-size: 100% 1.2em;*/
 
 }
 
@@ -75,18 +76,14 @@ main {
 
 .btn:hover,
 .btn:active {
-  color: #3e3a3a;
-  background-color: #eda31b;
+  color: #eda31b;
+  background-color: #3e3a3a;
   padding: 0 1.5rem;
 
 
 }
 
-.btn:active {
 
-  background-color: #eda31b;
-
-}
 
 .btn:disabled {
   border-color: #aeaeae;
@@ -97,11 +94,11 @@ main {
 
 .btn_flat {
   color: #eda31b;
+  border: solid 3px #3e3a3a;
   font-weight: 900;
   text-decoration: none;
   background: #3e3a3a;
   padding: 0 1.5rem;
-  border: none;
   cursor: pointer;
   display: block;
   margin: 3px;
@@ -114,6 +111,8 @@ main {
 .btn_flat:active {
   color: #3e3a3a;
   background-color: #eda31b;
+  border: solid 3px #3e3a3a;
+
 
 }
 

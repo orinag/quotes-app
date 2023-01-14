@@ -4,17 +4,13 @@
     align-items: center;
 }
 
-.errs_container {
-    background-color: #ffd4ddcb;
-    border-radius: 5px;
-    border: solid 2px #a63333;
+.errs_container {}
 
-}
 
 .invalid {
-    color: #a63333 !important;
+    color: #ff5252 !important;
     text-shadow: none;
-    font-size: 12px;
+    font-size: 15px;
     padding: 5px;
 
 }

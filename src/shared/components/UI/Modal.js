@@ -15,7 +15,7 @@ const Modal = (props) => {
         timeout={300}
         classNames="fade-slide"
       >
-        <div className={"modal"}>
+        <div className={props.className ? props.className : "modal"}>
           <header className="modal_header">
             <p>{props.header}</p>
           </header>

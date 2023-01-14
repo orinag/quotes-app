@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, memo } from "react";
 
 import "./AllQuotes.css";
 import SingleQuote from "./SingleQuote";
@@ -6,18 +6,22 @@ import { useStore } from "../../../shared/hooks-store/store";
 import useHttp from "../../../shared/hooks/http-hook";
 import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner";
 
-const AllQuotes = () => {
-  const state = useStore()[0];
+const AllQuotes = memo(() => {
+  const state = useStore(false)[0];
   const [sendGetReq, isLoading, err, resetErr] = useHttp();
 
   useEffect(() => {
-    sendGetReq("GETQUOTES", { url: "http://localhost:5000/api/quotes" });
+    sendGetReq("GETQUOTES", {
+      url: process.env.REACT_APP_BACKEND_URL + "/quotes",
+    });
   }, []);
 
-  const handleTryAgain = () => {
+  const handleTryAgain = useCallback(() => {
     resetErr();
-    sendGetReq("GETQUOTES", { url: "http://localhost:5000/api/quotes" });
-  };
+    sendGetReq("GETQUOTES", {
+      url: process.env.REACT_APP_BACKEND_URL + "/quotes",
+    });
+  }, [sendGetReq, resetErr]);
 
   return (
     <div className="quote-list">
@@ -32,17 +36,17 @@ const AllQuotes = () => {
       {isLoading && !err ? (
         <LoadingSpinner />
       ) : (
-        <ul>
+        <ul id="quotes-list">
           {state.quotes.map((item, index) => {
             return (
-              <li key={item.id}>
+              <li key={item?.id} id={"quote_" + index}>
                 <SingleQuote
-                  key={item.id}
-                  id={item.id}
-                  quote={item.content}
-                  auther={item.author}
-                  creatorId={item.creator}
-                  creatorName={item.creatorName}
+                  key={item?.id}
+                  id={item?.id}
+                  content={item?.content}
+                  author={item?.author}
+                  creatorId={item?.creator}
+                  creatorName={item?.creatorName}
                 />
               </li>
             );
@@ -51,6 +55,5 @@ const AllQuotes = () => {
       )}
     </div>
   );
-};
-
+});
 export default AllQuotes;
