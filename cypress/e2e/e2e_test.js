@@ -27,7 +27,7 @@ describe("auth and quotes", () => {
     cy.login("test@gmail.com", "123456789");
     cy.wait(2000);
   });
-  it.only("Checking the Navbar", () => {
+  it("Checking the Navbar", () => {
     cy.get("h3").contains("Test");
     cy.get(".btn").its("length").should("equal", 4);
     cy.get(".btn").each(($el, index, list) => {
