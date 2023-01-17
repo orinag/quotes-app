@@ -11,7 +11,7 @@ import UserPage from "./users/pages/UserPage";
 import { useStore } from "./shared/hooks-store/store";
 
 function App() {
-  const state = useStore(false)[0];
+  const state = useStore()[0];
   let routes;
 
   if (state.token) {

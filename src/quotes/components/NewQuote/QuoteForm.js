@@ -11,7 +11,7 @@ import Backdrop from "../../../shared/components/UI/Backdrop";
 import Modal from "../../../shared/components/UI/Modal";
 
 const QuoteForm = memo((props) => {
-  const state = useStore(false)[0];
+  const state = useStore()[0];
   const [addQuoteReq, isLoading, err, clearErr] = useHttp();
   const history = useHistory();
   const submitHandler = (values) => {

@@ -6,11 +6,12 @@ import "./NavLinks.css";
 
 const NavLinks = memo((props) => {
   console.log("RENDER");
+
   const logout = useAuth()[2];
-  const [state, dispatch] = useStore(false);
+  const [state, dispatch] = useStore();
+  console.log(state);
 
   const handleLogout = useCallback(() => {
-    console.log("HELLO");
     dispatch("logout");
     logout();
   }, [logout, dispatch]);

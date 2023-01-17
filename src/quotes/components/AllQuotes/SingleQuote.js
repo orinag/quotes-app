@@ -13,7 +13,7 @@ const SingleQuote = memo((props) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [deleteReq, isLoading, err, clearErr] = useHttp();
   const [editModal, setEditModal] = useState(false);
-  const state = useStore(false)[0];
+  const state = useStore()[0];
 
   const editModalClose = () => {
     setEditModal(false);
@@ -93,6 +93,7 @@ const SingleQuote = memo((props) => {
                 id="delete_btn"
                 type="button"
                 className="btn-warning"
+                name="delete_btn"
                 onClick={deleteModalHandle}
               >
                 DELETE

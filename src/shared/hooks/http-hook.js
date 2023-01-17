@@ -6,7 +6,7 @@ const useHttp = () => {
   const [token, login, logout, userId] = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState();
-  const dispatch = useStore(false)[1];
+  const dispatch = useStore()[1];
 
   const clearErr = () => {
     setErr(null);
@@ -52,8 +52,9 @@ const useHttp = () => {
 
             break;
           case "DELETE":
+            console.log(responseData.message);
             dispatch("deleteQuote", responseData.message);
-            console.log(responseData);
+
             break;
 
           case "SIGNUP":

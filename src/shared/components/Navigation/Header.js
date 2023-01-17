@@ -6,7 +6,7 @@ import Backdrop from "../UI/Backdrop";
 import { useStore } from "../../hooks-store/store";
 
 const Header = memo((props) => {
-  const state = useStore(false)[0];
+  const state = useStore()[0];
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const handleDrawerOpen = () => {
     setDrawerIsOpen(true);

@@ -7,7 +7,8 @@ import useHttp from "../../../shared/hooks/http-hook";
 import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner";
 
 const AllQuotes = memo(() => {
-  const state = useStore(false)[0];
+  console.log("rendering AllQuotes");
+  const state = useStore()[0];
   const [sendGetReq, isLoading, err, resetErr] = useHttp();
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const AllQuotes = memo(() => {
         <ul id="quotes-list">
           {state.quotes.map((item, index) => {
             return (
-              <li key={item?.id} id={"quote_" + index}>
+              <li key={item?.id} id={"quote_" + index} className="singleQuote">
                 <SingleQuote
                   key={item?.id}
                   id={item?.id}
