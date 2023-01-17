@@ -1,12 +1,18 @@
+import "../support/commands";
+const data = require("../fixtures/navbar.json");
 /// <reference types="Cypress" />
 
 describe("auth and quotes", () => {
-  beforeEach(() => {
+  /*
+  before(() => {
     cy.visit("http://localhost:3000/");
-    cy.intercept("GET", "http://localhost:5000/api/quotes");
-  });
-  it("sign-in and logout succesfully", () => {
-    /* ==== Generated with Cypress Studio ==== */
+    cy.get("#auth").click();
+    cy.get('[name="login_email"]').type("test@gmail.com");
+    cy.get('[name="login_password"]').type("123456789");
+    cy.get("#login-submit").click();
+    cy.get("#my-account").click();
+    cy.get("#delete-user").click();
+    cy.wait(3000);
     cy.get("#auth").click();
     cy.get("#flip-mode-button").click();
     cy.get("input.false").type("test@gmail.com");
@@ -14,65 +20,66 @@ describe("auth and quotes", () => {
     cy.get('[name="password"]').type("123456789", { force: true });
     cy.get("#sign-up-submit").click({ force: true });
     cy.get("#logout").click();
-    /* ==== End Cypress Studio ==== */
   });
-  it("login succesfully", () => {
-    cy.get("#auth").click();
-    cy.get('[name="login_email"]').type("test@gmail.com");
-    cy.get('[name="login_password"]').type("12345678");
-    cy.get("#login-submit").click();
+  */
+  beforeEach(() => {
+    cy.visit("http://localhost:3000/");
+    cy.login("test@gmail.com", "123456789");
+    cy.wait(2000);
   });
-
-  it("adding quotes and delete succesfully", () => {
-    cy.get("#auth").click();
-
-    /* ==== Generated with Cypress Studio ==== */
-    cy.get('[name="login_email"]').type("test@gmail.com");
-    cy.get('[name="login_password"]').type("123456789");
-    cy.get("#login-submit").click();
-    cy.get("#new-quote").click();
-    cy.get("#author-input").type("Test");
-    cy.get("#content-textarea").type("Testings");
-    cy.get("#add-quote-submit").click();
-    cy.get("#quote_1").each(($el, index, list) => {
-      cy.log("Index: " + index + " : " + $el.text());
-      cy.log(index);
+  it.only("Checking the Navbar", () => {
+    cy.get("h3").contains("Test");
+    cy.get(".btn").its("length").should("equal", 4);
+    cy.get(".btn").each(($el, index, list) => {
+      cy.get($el).invoke("text").should("contain", data.nav[index]);
+      cy.wrap($el).should("be.visible");
     });
+  });
+
+  it("Adding quotes and editting them succesfully", () => {
+    cy.get("#new-quote").click();
+    cy.addQuote("Test", "Testing");
+    cy.get(".btn").its("length").should("equal", 4);
     cy.findAllByText("-Test").should("exist");
     cy.get("#new-quote").click();
-    cy.get("#author-input").type("Test2");
-    cy.get("#content-textarea").type("Testings2");
-    cy.get("#add-quote-submit").click();
+    cy.addQuote("Test2", "Testing2");
+    cy.get("#all-quotes");
     cy.wait(2000);
-  });
-
-  it.only("adding quotes and delete succesfully", () => {
-    cy.get("#auth").click();
-    cy.get('[name="login_email"]').type("test@gmail.com");
-    cy.get('[name="login_password"]').type("123456789");
-    cy.get("#login-submit").click();
-    cy.wait(3000);
-    cy.get(".btn-warning").each(($el, index, list) => {
-      cy.log("Index: " + index + " : " + $el.text());
+    cy.get("#edit-quote").each(($el, index, list) => {
       cy.wait(2000);
-      if ($el.text() === "DELETE") {
+      if ($el.text() === "EDIT") {
         cy.wrap($el).click();
-        cy.get(".modal_btn").click();
+        cy.get("#content-textarea").type(" Editted");
+        cy.get("#edit-quote-submit").click();
+        cy.wait(3000);
       }
     });
-  });
-  it("edit quotes succesfully", () => {
-    cy.get("#edit-quote").first().click({ force: true });
-    cy.get("#author-input").type("Test edited");
-    cy.get("#content-textarea").type("Testings edited");
-    cy.get("#edit-quote-submit").click();
-    cy.wait(2000);
-    cy.wait(3000);
+    cy.get("#quotes-list").should("contain", "Testing");
+    cy.get("#quotes-list").should("contain", "-Test");
   });
 
-  it("delete user and its quotes succesfully", () => {
-    cy.wait(2000);
-    cy.get("#my-account").click();
-    cy.get("#delete-user").click();
+  it("Checking the quotes", () => {
+    cy.get(".singleQuote").each(($el, index, list) => {
+      cy.wrap($el).scrollIntoView();
+      cy.wrap($el).should("be.visible");
+    });
+  });
+
+  it("Deleting quotes succesfully", () => {
+    let numberOfButtons;
+    cy.get(".btn-warning")
+      .its("length")
+      .then((length) => {
+        for (let i = 0; i < length; i++) {
+          cy.get(".btn-warning").eq(0).click();
+
+          cy.get(".modal_btn").click();
+          cy.wait(3000);
+          cy.reload();
+          cy.wait(3000);
+        }
+      });
+
+    cy.get("#logout").click();
   });
 });
