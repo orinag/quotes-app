@@ -1,0 +1,38 @@
+.nav-list {
+
+    display: flex;
+    flex-direction: row-reverse;
+    list-style: none;
+    align-items: center;
+
+}
+
+.nav-list li {
+    margin: 1rem 0rem;
+}
+
+
+
+
+
+.nav-list a:active {
+    color: #3e3a3a;
+}
+
+
+
+.nav-list a.active {
+
+    color: #eda31b;
+    background-color: #3e3a3a;
+    opacity: 1;
+    padding: 0 1.5rem;
+
+}
+
+
+
+
+
+
+@media (max-width: 500px) {}

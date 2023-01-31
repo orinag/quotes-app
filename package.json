@@ -7,20 +7,27 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.3",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+<<<<<<< HEAD
+    "test": "cypress open",
+    "eject": "react-scripts eject"
+=======
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint .",
     "lint:fix": "./node_modules/.bin/eslint --fix .",
     "use-repo-hooks": "git config core.hooksPath git-hooks"
+>>>>>>> 541fdd6523cef1b7e609799dfac63d1ea56f7295
   },
   "eslintConfig": {
     "extends": [
@@ -41,11 +48,16 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
+    "@testing-library/cypress": "^8.0.3",
+    "cypress": "^12.3.0"
+=======
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0"
+>>>>>>> 541fdd6523cef1b7e609799dfac63d1ea56f7295
   }
 }
